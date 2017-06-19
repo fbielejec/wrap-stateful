@@ -7,35 +7,6 @@ var Module = (function Module() {
     "data" : null  
   };
   
-  var dragstarted = function(d) {
-    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-    d.fx = d.x;
-    d.fy = d.y;
-  }
-
-  var dragged = function(d) {
-    d.fx = d3.event.x;
-    d.fy = d3.event.y;
-  }
-
-  var dragended = function(d) {
-    if (!d3.event.active) simulation.alphaTarget(0);
-    d.fx = null;
-    d.fy = null;
-  }
-
-  var ticked = function() {
-    link
-      .attr("x1", function(d) { return d.source.x; })
-      .attr("y1", function(d) { return d.source.y; })
-      .attr("x2", function(d) { return d.target.x; })
-      .attr("y2", function(d) { return d.target.y; });
-
-    node
-      .attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; });
-  }
-  
   // Return the constructor
   return function Module() {
 
