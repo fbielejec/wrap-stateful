@@ -1,6 +1,7 @@
 (defproject wrap-stateful "0.0.1-SNAPSHOT"
   :description "Demontrates how to write JS libraries that can be wrapped in cljs/re-frame application. "
-  :dependencies [[org.clojure/clojurescript "1.9.542"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.542"]
                  [reagent "0.6.2"]
                  [re-frame "0.9.3"]
                  [re-frisk "0.3.2"]]
@@ -24,8 +25,8 @@
                                    :asset-path "js/compiled/out"
                                    :closure-defines {goog.DEBUG true}
                                    :source-map-timestamp true
-                                   :externs ["js/app/src/d3-lib.js"]
-                                   :foreign-libs [{:file "js/app/src/d3-lib.js"
+                                   :externs ["js/lib/d3-lib.min.js"]
+                                   :foreign-libs [{:file "js/lib/d3-lib.min.js"
                                                    :provides ["d3-lib"]}]}}]}
   :clean-targets ^{:protect false} ["resources/public/js/compiled"
                                     "target"
