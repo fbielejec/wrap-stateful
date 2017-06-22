@@ -1,1 +1,4 @@
 node_modules/
+resources/public/js/compiled/
+target/
+.nrepl-port
