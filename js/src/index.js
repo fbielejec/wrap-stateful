@@ -1,6 +1,5 @@
-var d3 = require('d3');
-
 require('./style/index.css');
+var d3 = require('d3');
 
 var Module = (function Module() {
 

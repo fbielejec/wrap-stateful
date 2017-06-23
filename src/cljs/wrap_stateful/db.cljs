@@ -1,4 +1,4 @@
 (ns wrap-stateful.db)
 
 (def default-db
-  {:data ""})
+  {:data "not nil"})

@@ -27,7 +27,7 @@
                                    :source-map-timestamp true
                                    :externs ["js/lib/d3-lib.min.js"]
                                    :foreign-libs [{:file "js/lib/d3-lib.min.js"
-                                                   :provides ["d3-lib"]}]}}]}
+                                                   :provides ["chart"]}]}}]}
   :clean-targets ^{:protect false} ["resources/public/js/compiled"
                                     "target"
                                     "test/js"])
