@@ -19,23 +19,6 @@ var Module = (function Module() {
 
     _this.render = function () {
 
-      function dragstarted(d) {
-        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-      }
-
-      function dragged(d) {
-        d.fx = d3.event.x;
-        d.fy = d3.event.y;
-      }
-
-      function dragended(d) {
-        if (!d3.event.active) simulation.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
-      }
-
       var margin = {top: 20, right: 80, bottom: 30, left: 50};
       var width = 960 - margin.left - margin.right;
       var height = 500 - margin.top - margin.bottom;
@@ -52,6 +35,23 @@ var Module = (function Module() {
           .force('link', d3.forceLink().id(function (d) { return d.id; }))
           .force('charge', d3.forceManyBody())
           .force('center', d3.forceCenter(width / 2, height / 2));
+
+      function dragstarted(d) {
+        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(d) {
+        d.fx = d3.event.x;
+        d.fy = d3.event.y;
+      }
+
+      function dragended(d) {
+        if (!d3.event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
 
       d3.json(_privateVars.data, function (error, data) {
         if (error) throw error;
@@ -75,16 +75,6 @@ var Module = (function Module() {
                   .on('drag', dragged)
                   .on('end', dragended));
 
-        node.append('title')
-          .text(function (d) { return d.id; });
-
-        simulation
-          .nodes(data.nodes)
-          .on('tick', ticked);
-
-        simulation.force('link')
-          .links(data.links);
-
         function ticked() {
           link
             .attr('x1', function (d) { return d.source.x; })
@@ -96,6 +86,16 @@ var Module = (function Module() {
             .attr('cx', function (d) { return d.x; })
             .attr('cy', function (d) { return d.y; });
         }
+
+        node.append('title')
+          .text(function (d) { return d.id; });
+
+        simulation
+          .nodes(data.nodes)
+          .on('tick', ticked);
+
+        simulation.force('link')
+          .links(data.links);
 
         console.log(data);
 

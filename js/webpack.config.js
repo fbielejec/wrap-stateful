@@ -11,7 +11,7 @@ let plugins = [];
 
 let outputFile;
 
-if (env === 'build') {
+if (env === 'prod') {
   plugins.push(new UglifyJsPlugin({ minimize: true }));
   outputFile = libraryName + '.min.js';
 } else {
