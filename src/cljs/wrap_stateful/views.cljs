@@ -1,7 +1,7 @@
 (ns wrap-stateful.views
   (:require [re-frame.core :as re-frame]
             [reagent.core :as reagent]
-            d3-lib))
+            module))
 
 (defn handle-file-read
   [id evt]
@@ -36,6 +36,6 @@
          (if data
            (do
              (prn "data loaded")
-             (let [chart (js/d3-lib.)]
-               (prn chart)))
+             (let [chart (js/Module.)]
+               [chart]))
            (prn "no data loaded"))]))))
