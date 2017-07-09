@@ -13,9 +13,11 @@
                    :plugins [[lein-figwheel "0.5.10" :exclusions [cider/cider-nrepl]]]
                    :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}}
   :plugins [[lein-ancient "0.6.10"]
-            [lein-cljsbuild "1.1.5"]]
+            [lein-cljsbuild "1.1.5"]
+            [lein-npm "0.6.2"]]
   :figwheel {:css-dirs ["resources/public/styles"]
              :server-port 8080}
+  ;;  :npm {:dependencies [[source-map-support "0.3.2"]]}
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs"]
                         :figwheel {:on-jsload "wrap-stateful.core/mount-root"}
@@ -25,9 +27,9 @@
                                    :asset-path "js/compiled/out"
                                    :closure-defines {goog.DEBUG true}
                                    :source-map-timestamp true
-                                   ;; :externs ["js/lib/d3-lib.js"]
-                                   :foreign-libs [{:file "js/lib/d3-lib.js"
-                                                   :provides ["module"]}]}}]}
+                                   :externs ["externs/d3lib.extern.js"]
+                                   :foreign-libs [{:file "js/lib/d3lib.js"
+                                                   :provides ["d3lib"]}]}}]}
   :clean-targets ^{:protect false} ["resources/public/js/compiled"
                                     "target"
                                     "test/js"])

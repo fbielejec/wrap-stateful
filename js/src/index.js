@@ -104,7 +104,9 @@ var Module = (function Module() {
   };
 }());
 
-module.exports = {
-  Module: Module
-};
+module.exports = Module;
+
+// module.exports = {
+//   Module: Module
+// };
 

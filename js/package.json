@@ -5,10 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "webpack --display-error-details",
+    "dev": "webpack --progress --colors --watch --env dev",
     "prod": "webpack --env prod",
-    "build": "webpack --env build",
-    "dev": "webpack --progress --colors --watch --env dev"
+    "build": "webpack --env build"
   },
   "author": "fbielejec",
   "license": "LGPL-3.0",
@@ -36,6 +35,7 @@
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.18.0",
+    "webpack-closure-compiler": "^2.1.4",
     "yargs": "7.1.0"
   }
 }
