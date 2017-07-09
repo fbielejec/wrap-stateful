@@ -27,9 +27,9 @@
                                    :asset-path "js/compiled/out"
                                    :closure-defines {goog.DEBUG true}
                                    :source-map-timestamp true
-                                   :externs ["externs/d3lib.extern.js"]
-                                   :foreign-libs [{:file "js/lib/d3lib.js"
-                                                   :provides ["d3lib"]}]}}]}
+                                   :externs ["externs/d3-lib.extern.js"]
+                                   :foreign-libs [{:file "js/lib/d3-lib.js"
+                                                   :provides ["module"]}]}}]}
   :clean-targets ^{:protect false} ["resources/public/js/compiled"
                                     "target"
                                     "test/js"])

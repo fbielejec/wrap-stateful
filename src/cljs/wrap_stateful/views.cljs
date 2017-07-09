@@ -1,7 +1,7 @@
 (ns wrap-stateful.views
   (:require [re-frame.core :as re-frame]
             [reagent.core :as reagent]
-            d3lib))
+            module))
 
 (defn handle-file-read
   [id evt]

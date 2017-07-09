@@ -6,16 +6,18 @@ const path = require('path');
 const env  = require('yargs').argv.env; // use --env with webpack 2
 const ClosureCompilerPlugin = require('webpack-closure-compiler');
 
-let libraryName = 'd3lib';
+let libraryName = 'd3-lib';
 
-let plugins = [new ClosureCompilerPlugin({
-  compiler: {
-    language_in: 'ECMASCRIPT6',
-    language_out: 'ECMASCRIPT5',
-    compilation_level: 'ADVANCED'
-  },
-  concurrency: 3,
-})];
+let plugins = [
+  // new ClosureCompilerPlugin({
+  //   compiler: {
+  //   language_in: 'ECMASCRIPT6',
+  //   language_out: 'ECMASCRIPT5',
+  //   compilation_level: 'ADVANCED'
+  // },
+  // concurrency: 3,
+  // })
+];
 
 let outputFile;
 
