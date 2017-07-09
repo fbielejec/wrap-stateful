@@ -1,4 +1,4 @@
-require('./style/index.css');
+// require('./style/index.css');
 var d3 = require('d3');
 
 var Module = (function Module() {
@@ -96,8 +96,6 @@ var Module = (function Module() {
 
         simulation.force('link')
           .links(data.links);
-
-        console.log(data);
 
       });
 
